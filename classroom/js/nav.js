@@ -8,7 +8,7 @@ $(function () {
         {
             title: '用户管理',
             icon: 'icon-yonghuguanli',
-            level: [{ name: '用户信息', url: 'www.baidu.com' }],
+            level: [{ name: '用户信息', url: 'pages/yonghuxinxi.html' }],
         },
         {
             title: '论坛管理',

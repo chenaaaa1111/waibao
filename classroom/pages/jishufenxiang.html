@@ -14,6 +14,12 @@
 </head>
 <body>
 <h3 class="title">技术分享</h3>
+<div class="addBox">
+    <button type="button" class="btn btn-primary" id="add">
+        <span class="glyphicon glyphicon-plus"></span>
+        添加
+    </button>
+</div>
 <div class="content">
     <table id="table"></table>
 </div>
@@ -30,65 +36,20 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group fileGroup">
-                                    <span class="fileTips">上传视频</span>
-                                    <span class="fileName">観月あかね.avi</span>
-                                    <input type="file" class="inputFile" />
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">AtID:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-7">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="exampleTitle">标题<span class="important">*</span></label>
-                                        <span class="titleTips">填写视频标题，它可以吸引更多观众来看你的视频哦</span>
-                                        <input type="text" class="form-control" id="exampleTitle" placeholder="标题"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleClass">分类<span class="important">*</span></label>
-                                        <input type="text" class="form-control" id="exampleClass" placeholder="分类"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleSpecial">专题<span class="important">*</span></label>
-                                        <input type="text" class="form-control" id="exampleSpecial" placeholder="专题"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleCategory">类目</label>
-                                        <input type="text" class="form-control" id="exampleCategory" placeholder="类目"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleStage">所属阶段</label>
-                                        <input type="text" class="form-control" id="exampleStage" placeholder="所属阶段"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleDescribe">简介</label>
-                                        <div class="describeBox">
-                                            <textarea id="exampleDescribe" cols="30" rows="5"></textarea>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="row">
-                                    <div class="col-md-12">封面览图</div>
-                                    <div class="col-md-12">
-                                        <img class="fengmian" src="../images/move.png" alt="封面"/>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="choose">
-                                            <div class="picType chooseActive">
-                                                <span>自选封面</span>
-                                                <input type="file" class="inputFile" />
-                                            </div>
-                                            <div class="picType">系统封面</div>
-                                        </div>
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章内容</label>
+                                <div class="col-sm-10">
+                                    <textarea name="" id="" cols="30" rows="10" style="width: 213px;"></textarea>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -178,7 +139,10 @@
     });
     $("#close").on("click",function () {
         $('#myModal').modal('hide')
-    })
+    });
+    $("#add").on("click",function () {
+        $('#myModal').modal('show')
+    });
     // 分页
     $(".pageBox").createPage({
         pageCount: 2,
