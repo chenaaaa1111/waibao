@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <style>
+        .content{
+            box-shadow: 0 0 5px #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <table id="table"></table>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-zh-CN.min.js"></script>
+    <script>
+        var user = [
+            {
+                id: '001',
+                name: 'join',
+                age: 25,
+                join: 'web coder',
+                money: 25000,
+                status: 'no'
+            }
+        ];
+        $("#table").bootstrapTable({
+            data: user,
+            pagination: true,
+            columns: [
+                {
+                    field: 'id',
+                    title: 'Item ID'
+                },
+                {
+                    field: 'name',
+                    title: '姓名',
+                },
+                {
+                    field: 'age',
+                    title: '年龄',
+                },
+                {
+                    field: 'join',
+                    title: '工作',
+                },
+                {
+                    field: 'money',
+                    title: '工资',
+                },
+                {
+                    field: 'status',
+                    title: '状态',
+                }
+            ]
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>课程管理</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="../css/pages.css"/>
+    <link rel="stylesheet" href="../css/kecheng.css"/>
+</head>
+<body>
+    <h3 class="title">课程管理</h3>
+    <div class="content">
+        <table id="table"></table>
+    </div>
+    <div class="pageBox"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group fileGroup">
+                                        <span class="fileTips">上传视频</span>
+                                        <span class="fileName">请选择文件</span>
+                                        <input type="file" class="inputFile" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleTitle">标题<span class="important">*</span></label>
+                                            <span class="titleTips">填写视频标题，它可以吸引更多观众来看你的视频哦</span>
+                                            <input type="text" class="form-control" id="exampleTitle" placeholder="标题"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleClass">分类<span class="important">*</span></label>
+                                            <input type="text" class="form-control" id="exampleClass" placeholder="分类"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleSpecial">专题<span class="important">*</span></label>
+                                            <input type="text" class="form-control" id="exampleSpecial" placeholder="专题"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleCategory">类目</label>
+                                            <input type="text" class="form-control" id="exampleCategory" placeholder="类目"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleStage">所属阶段</label>
+                                            <input type="text" class="form-control" id="exampleStage" placeholder="所属阶段"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDescribe">简介</label>
+                                            <div class="describeBox">
+                                                <textarea id="exampleDescribe" cols="30" rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-md-12">封面览图</div>
+                                        <div class="col-md-12">
+                                            <img class="fengmian" src="../images/move.png" alt="封面"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="choose">
+                                                <div class="picType chooseActive">
+                                                    <span>自选封面</span>
+                                                    <input type="file" class="inputFile" />
+                                                </div>
+                                                <div class="picType">系统封面</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="close">关闭</button>
+                    <button type="button" class="btn btn-primary" id="save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../bootstrap/js/jquery-1.11.0.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap-table.js"></script>
+    <script src="../js/pages.js"></script>
+    <script>
+        var user = [
+            {
+                id: '001',
+                name: 'join',
+                age: 25,
+                join: 'web coder',
+                money: 25000,
+                status: 'no'
+            },
+            {
+                id: '002',
+                name: 'join',
+                age: 25,
+                join: 'web coder',
+                money: 25000,
+                status: 'no'
+            }
+        ];
+        $("#table").bootstrapTable({
+            data: user,
+            columns: [
+                {
+                    field: 'id',
+                    visible: false,
+                    title: 'Item ID'
+                },
+                {
+                    field: 'name',
+                    title: '姓名',
+                },
+                {
+                    field: 'age',
+                    title: '年龄',
+                },
+                {
+                    field: 'join',
+                    title: '工作',
+                },
+                {
+                    field: 'money',
+                    title: '工资',
+                },
+                {
+                    field: 'status',
+                    title: '状态',
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    width: '160px',
+                    events: {
+                        'click .RoleOfA': function (e, value, row, index) {
+                            // alert(JSON.stringify(row));
+                        },
+                        'click .RoleOfB': function (e, value, row, index) {
+                            // alert("B");
+                        }
+                    },
+                    formatter: operateFormatter
+                }
+            ]
+        });
+
+        function operateFormatter(value, row, index) {
+            return [
+                '<button data-toggle="modal" data-target="#myModal" type="button" class="RoleOfA btn btn-primary  btn-sm" style="margin-right:15px;">编辑</button>',
+                '<button type="button" class="RoleOfB btn btn-danger  btn-sm">删除</button>',
+            ].join('');
+
+        }
+        $("#save").on('click', function() {
+            $('#myModal').modal('hide')
+        });
+        $("#close").on("click",function () {
+            $('#myModal').modal('hide')
+        })
+        // 分页
+        $(".pageBox").createPage({
+            pageCount: 2,
+            current: 1,
+            backFn: function(p) {
+                console.log(p,'当前页数');
+            }
+        });
+        $(".choose").on("click", ".picType", function () {
+            $(this).addClass("chooseActive").siblings().removeClass("chooseActive")
+        });
+    </script>
+</body>
+</html>
