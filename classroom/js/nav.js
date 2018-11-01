@@ -13,7 +13,7 @@ $(function () {
         {
             title: '论坛管理',
             icon: 'icon-icon_luntan-xian',
-            level: [{ name: '技术分享', url: 'www.baidu.com' }],
+            level: [{ name: '技术分享', url: 'pages/jishufenxiang.html' }],
         },
         {
             title: '系统管理',

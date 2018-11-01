@@ -10,91 +10,12 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-table.min.css"/>
     <link rel="stylesheet" href="../iconfont/iconfont.css"/>
     <link rel="stylesheet" href="../css/pages.css"/>
-    <link rel="stylesheet" href="../css/kecheng.css"/>
+    <link rel="stylesheet" href="../css/jishufenxiang.css"/>
 </head>
 <body>
-<h3 class="title">课程管理</h3>
-<div class="screen">
-    <form class="form-inline">
-        <div class="form-group has-primary has-feedback">
-            <input type="text" class="form-control myInput" id="inputSuccess1" />
-            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-            <span id="inputSuccess4Status" class="sr-only">(success)</span>
-        </div>
-        <div class="form-group has-primary has-feedback">
-            <div class="form-group has-primary has-feedback">
-                <select class="form-control myselect" id="inputSuccess2" >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group has-primary has-feedback">
-            <div class="form-group has-primary has-feedback">
-                <select class="form-control myselect" id="inputSuccess3">
-                    <option>100000</option>
-                    <option>2000000</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group has-primary has-feedback">
-            <div class="form-group has-primary has-feedback">
-                <select class="form-control myselect" id="inputSuccess4">
-                    <option>100000</option>
-                    <option>2000000</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group has-primary has-feedback">
-            <div class="form-group has-primary has-feedback">
-                <button type="button" class="btn btn-primary">查询</button>
-            </div>
-        </div>
-        <div class="form-group has-primary has-feedback" style="float: right;">
-            <div class="form-group has-primary has-feedback">
-                <button type="button" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-plus"></span>
-                    添加课程
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
+<h3 class="title">技术分享</h3>
 <div class="content">
-    <div class="row">
-        <div class="col-md-5 picTxt">
-            <div class="picLine">
-                <div class="infoBox">
-                    <h4>1.12视频课程介绍</h4>
-                    <div class="time">2018-10-26</div>
-                </div>
-                <div class="picBox">
-                    <img src="../images/star.png"/>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="classList">
-                分类：<span>Java 基础</span>
-            </div>
-            <div class="classList">
-                专题：<span>Java从入门到项目实战（全集）第1篇 Java基础</span>
-            </div>
-            <div class="classList">
-                类目：<span>类目：第1章 开篇综述</span>
-            </div>
-        </div>
-        <div class="col-md-2">1</div>
-    </div>
+    <table id="table"></table>
 </div>
 <div class="pageBox"></div>
 
@@ -183,8 +104,75 @@
 <script src="../bootstrap/js/bootstrap-table.js"></script>
 <script src="../js/pages.js"></script>
 <script>
+    var user = [
+        {
+            id: '001',
+            name: 'join',
+            age: 25,
+            join: 'web coder',
+            money: 25000,
+            status: 'no'
+        },
+        {
+            id: '002',
+            name: 'join',
+            age: 25,
+            join: 'web coder',
+            money: 25000,
+            status: 'no'
+        }
+    ];
+    $("#table").bootstrapTable({
+        data: user,
+        columns: [
+            {
+                field: 'id',
+                visible: false,
+                title: 'Item ID'
+            },
+            {
+                field: 'name',
+                title: '姓名'
+            },
+            {
+                field: 'age',
+                title: '年龄',
+            },
+            {
+                field: 'join',
+                title: '工作',
+            },
+            {
+                field: 'money',
+                title: '工资',
+            },
+            {
+                field: 'status',
+                title: '状态',
+            },
+            {
+                field: 'operate',
+                title: '操作',
+                width: '160px',
+                events: {
+                    'click .RoleOfA': function (e, value, row, index) {
+                        // alert(JSON.stringify(row));
+                    },
+                    'click .RoleOfB': function (e, value, row, index) {
+                        // alert("B");
+                    }
+                },
+                formatter: operateFormatter
+            }
+        ]
+    });
+    function operateFormatter(value, row, index) {
+        return [
+            '<button data-toggle="modal" data-target="#myModal" type="button" class="RoleOfA btn btn-primary  btn-sm" style="margin-right:15px;">编辑</button>',
+            '<button type="button" class="RoleOfB btn btn-danger  btn-sm">删除</button>',
+        ].join('');
 
-
+    }
     $("#save").on('click', function() {
         $('#myModal').modal('hide')
     });
