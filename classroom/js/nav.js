@@ -18,7 +18,7 @@ $(function () {
         {
             title: '系统管理',
             icon: 'icon-xitongguanli',
-            level: [{ name: '操作员管理', url: 'www.baidu.com' }],
+            level: [{ name: '操作员管理', url: 'pages/caozuoyuanguanli.html' }],
         }
     ];
     var navhtml = '';
