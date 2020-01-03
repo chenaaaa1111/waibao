@@ -1,0 +1,235 @@
+{
+	"pages": [
+
+		{
+			"path": "pages/index/index",
+			"style": {
+
+			}
+		},
+		{
+			"path": "pages/userinfo/userinfo",
+			"style": {
+				"navigationBarTitleText": "修改资料"
+			}
+		},{
+			"path": "pages/public/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"
+				}
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				// #ifdef MP
+				"navigationStyle": "custom",
+				// #endif
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"type": "transparent",
+						"buttons": [
+							{
+								"fontSrc": "/static/yticon.ttf",
+								"text": "\ue60f",
+								"fontSize": "24",
+								"color": "#303133",
+								"width": "46px",
+								"background": "rgba(0,0,0,0)"
+							}
+							// ,
+							// {
+							// 	"fontSrc": "/static/yticon.ttf",
+							// 	"text": "\ue744",
+							// 	"fontSize": "28",
+							// 	"color": "#303133",
+							// 	"background": "rgba(0,0,0,0)",
+							// 	"redDot": true
+							// }
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "标准商品库",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, {
+			"path": "pages/order/createOrder",
+			"style": {
+				"navigationBarTitleText": "创建订单"
+			}
+		}, {
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "收货地址"
+			}
+		}, {
+			"path": "pages/address/addressManage",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+            "path" : "pages/notice/notice",
+            "style" : {
+				"navigationBarTitleText": "通知"
+			}
+        },{
+            "path" : "pages/mall/mall/mall",
+            "style" : {
+				"navigationBarTitleText": "商品管理",
+				"app-plus":{
+					"titleNView":{
+						"titleText":"商品管理title"
+																				
+					}
+				}
+			}
+        },
+		{
+		    "path" : "pages/announcement/index",
+		    "style" : {
+				"navigationBarTitleText": "公告"
+			}
+		},
+		{
+		    "path" : "pages/announcement/item",
+		    "style" : {
+				"navigationBarTitleText": "公告详情"
+			}
+		},
+		{
+		    "path" : "pages/login/index",
+		    "style" : {
+				"navigationStyle":"custom",
+				"app-plus":{
+				"titleView":false
+				}
+			}
+		},
+		{
+		    "path" : "pages/setup/setup",
+		    "style" : {
+				"navigationBarTitleText": "我的-设置"
+				}
+		},
+		{
+		    "path" : "pages/setup/resetpassword",
+		    "style" : {
+				"navigationBarTitleText": "修改密码"
+				}
+		},
+		{
+			"path" : "pages/statements/index",
+			"style" : {
+				"navigationBarTitleText": "供应商结算管理"
+				}
+		},
+		{
+			"path" : "pages/shop/index",
+			"style" : {
+				"navigationBarTitleText": "店铺管理"
+				}
+		},
+		{
+			"path" : "pages/information/index",
+			"style" : {
+				"navigationBarTitleText": "公司信息管理"
+				}
+		},
+		{
+			"path" : "pages/information/baseinfo",
+			"style" : {
+				"navigationBarTitleText": "基本信息"
+				}
+		},
+		{
+			"path" : "pages/information/qualificationinfo",
+			"style" : {
+				"navigationBarTitleText": "技术服务资质信息"
+				}
+		},
+		{
+			"path" : "pages/information/bankinfo",
+			"style" : {
+				"navigationBarTitleText": "银行账户信息"
+				}
+		},
+		{
+			"path" : "pages/information/invoice",
+			"style" : {
+				"navigationBarTitleText": "发票信息"
+				}
+		},
+		{
+			"path" : "pages/information/courier",
+			"style" : {
+				"navigationBarTitleText": "快递地址信息"
+				}
+		},
+		{
+			"path" : "pages/information/account",
+			"style" : {
+				"navigationBarTitleText": "账号管理"
+				}
+		}
+		
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#f8f8f8"
+	},
+	"tabBar": {
+		"color": "#C0C4CC",
+		"selectedColor": "#0E9DD8",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/menu/home_u.png",
+				"selectedIconPath": "static/menu/home.png",
+				"text": "控制台"
+			},
+			{
+				"pagePath": "pages/mall/mall/mall",
+				"iconPath": "static/menu/catagary_u.png",
+				"selectedIconPath": "static/menu/catagary.png",
+				"text": "商品管理"
+			},
+			// {
+			// 	"pagePath": "pages/order/order",
+			// 	"iconPath": "static/menu/work_u.png",
+			// 	"selectedIconPath": "static/menu/work.png",
+			// 	"text": "标准商品库"
+			// },
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/menu/mine_u.png",
+				"selectedIconPath": "static/menu/mine.png",
+				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}
